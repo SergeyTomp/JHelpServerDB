@@ -1,0 +1,5 @@
+CREATE TABLE TERM(id INTEGER PRIMARY KEY,term VARCHAR (96) NOT NULL UNIQUE);
+CREATE TABLE DEFINITION (id INTEGER PRIMARY KEY,
+                         definition VARCHAR (255) NOT NULL,
+                         term_id INTEGER NOT NULL,
+  CONSTRAINT term_fk FOREIGN KEY (term_id) REFERENCES TERM (id));

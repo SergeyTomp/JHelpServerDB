@@ -1,0 +1,2 @@
+CALL SYSCS_UTIL.SYSCS_IMPORT_TABLE (null,'TERM','D:\JHelpServerDB\src\main\resources\term.csv',null,null,null,1);
+CALL SYSCS_UTIL.SYSCS_IMPORT_TABLE (null,'DEFINITION','D:\JHelpServerDB\src\main\resources\definition.csv',null,null,null,1);
