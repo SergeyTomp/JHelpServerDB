@@ -37,10 +37,10 @@ public class JavaConfig {
     @Value("${server.password}")
     private String password;
 
-    @Value("${script.fillTable.term}")
+    @Value("${script.fillTable.term.begin}" + "${term.source.path}" + "${script.fillTable.end}")
     private String fillTermScript;
 
-    @Value("${script.fillTable.definition}")
+    @Value("${script.fillTable.definition.begin}" +"${definition.source.path}" + "${script.fillTable.end}")
     private String fillDefinitionScript;
 
     @Value("${dataBase.fillTables}")
@@ -48,12 +48,6 @@ public class JavaConfig {
 
     @Value("${dataBase.needPassword}")
     private boolean needPassword;
-
-    @Value("${script.saveTable.term}")
-    private String saveTermScript;
-
-    @Value("${script.saveTable.definition}")
-    private String saveDefinitionScript;
 
     @Bean
     public DataSource dataSource() throws SQLException {
@@ -120,8 +114,6 @@ public class JavaConfig {
     public TableSaver tableSaver(DataSource dataSource){
         TableSaver tableSaver = new TableSaver();
         tableSaver.setDataSource(dataSource);
-        tableSaver.setTermSaveScript(saveTermScript);
-        tableSaver.setDefinitionSaveScript(saveDefinitionScript);
         return tableSaver;
     }
 }

@@ -18,7 +18,7 @@
 18,"An operator that has two arguments.",18
 19,"The smallest unit of information in a computer, with a value of either 0 or 1.",19
 20,"An operator that manipulates the bits of one or more of its operands individually and in parallel.",20
-21,"In the Java programming language, any code between matching braces. Example: { x = 1 }.",21
+21," }.In the Java programming language, any code between matching braces. Example: { x = 1 }.",21
 22,"Refers to an expression or variable that can have only a true or false value. The Java programming language provides the boolean type and the literal values true and false.",22
 23,"A Java keyword used to resume program execution at the statement immediately following the current statement. If followed by a label, the program resumes execution at the labeled statement.",23
 24,"A sequence of eight bits. Java provides a corresponding byte type.",24
