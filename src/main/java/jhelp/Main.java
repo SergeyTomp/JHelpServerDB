@@ -13,9 +13,16 @@ import java.sql.SQLException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import static javax.swing.JOptionPane.INFORMATION_MESSAGE;
+import static javax.swing.JOptionPane.showMessageDialog;
+
 public class Main {
 
     private static Logger log = LoggerFactory.getLogger(Main.class);
+
+    private static void showInfo(String message, String title){
+        showMessageDialog(null, message, title, INFORMATION_MESSAGE);
+    }
 
     public static void main(String[] args) {
 
@@ -35,6 +42,7 @@ public class Main {
 
             log.info("Local server is launched on port: {}", PORT);
             System.out.println("\nTo shutdown server please type \"exit\"");
+            showInfo("To shutdown server please type \"exit\" in terminal window", "Server started");
             String line;
             while ((line = reader.readLine()) != null)
                 if (line.equals("exit")) {
