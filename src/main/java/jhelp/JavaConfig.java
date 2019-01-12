@@ -34,7 +34,7 @@ public class JavaConfig {
     @Value("${server.user.name}")
     private String userName;
 
-    @Value("${server.password}")
+    @Value("${server.user.password}")
     private String password;
 
     @Value("${script.fillTable.term.begin}" + "${term.source.path}" + "${script.fillTable.end}")
@@ -49,10 +49,16 @@ public class JavaConfig {
     @Value("${dataBase.needPassword}")
     private boolean needPassword;
 
+    @Value("${jdbcDriver}")
+    private String jdbcDriver;
+
+    @Value("${hibernate.dialect}")
+    private String hibernateDialect;
+
     @Bean
-    public DataSource dataSource() throws SQLException {
+    public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName("org.apache.derby.jdbc.EmbeddedDriver");
+        dataSource.setDriverClassName(jdbcDriver);
         dataSource.setUrl(dataSourceUrl);
         dataSource.setUsername(userName);
 
@@ -63,12 +69,12 @@ public class JavaConfig {
     }
 
     @Bean
-    public LocalContainerEntityManagerFactoryBean entityManagerFactory() throws SQLException {
+    public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
 
 
         HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         vendorAdapter.setDatabase(Database.DERBY);
-        vendorAdapter.setDatabasePlatform("org.hibernate.dialect.DerbyTenSevenDialect");
+        vendorAdapter.setDatabasePlatform(hibernateDialect);
 
         vendorAdapter.setGenerateDdl(true);
 
